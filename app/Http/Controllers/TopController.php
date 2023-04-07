@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Models\User;
 
 class TopController extends Controller
 {
@@ -11,9 +12,25 @@ class TopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        session()->put('msg');
+        //テスト用
+        session()->put('user_id', "1");
+
+        //ログイン済みか確認
+        $user_id = session()->get('user_id');
+
+        //ユーザ情報取得
+        $login_flg = false;
+        if(!empty($user_id)){
+            $login_flg = true;
+
+            $object = new User();
+            $data = $object->getData();
+        }
+
+        var_dump('DB取得結果'.$data);
     }
 
     /**

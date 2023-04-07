@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//TOPページ
+Route::get('/',  'TopController@index')->name('site.top');
 
 /* 追加行 */
 Route::get('/info', function () {

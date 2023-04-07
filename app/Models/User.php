@@ -13,14 +13,27 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
+     * モデルに関連付けるテーブル
+     *
+     * @var string
+     */
+    protected $table = 'user_tbl';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'user_id',
         'password',
+        'mail',
+        'nickname',
+        'pro_img',
+        'avail_flg',
+        'set_date',
+        'set_nm',
+        'create_date'
     ];
 
     /**
@@ -30,15 +43,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
+        'mail',
     ];
 }
