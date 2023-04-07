@@ -45,4 +45,11 @@ class User extends Authenticatable
         'password',
         'mail',
     ];
+
+    public function getData()
+    {
+        $data = DB::table($this->table)->get();
+
+        return $data;
+    }
 }
