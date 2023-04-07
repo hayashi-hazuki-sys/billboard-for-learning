@@ -31,6 +31,7 @@ class TopController extends Controller
         }
 
         var_dump('DB取得結果'.$data);
+        echo $data['nickname'];
     }
 
     /**
