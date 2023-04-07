@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/* 追加行 */
+Route::get('/info', function () {
+    return 'Hello World';
+});
