@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //TOPページ
-Route::get('/',  'TopController@index')->name('site.top');
+Route::get('/',  [TopController::class, 'index'])->name('site.top');
 
 /* 追加行 */
 Route::get('/info', function () {
