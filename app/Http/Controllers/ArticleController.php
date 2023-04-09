@@ -13,7 +13,7 @@ class ArticleController extends SiteController
      *
      * @return void
      */
-    public function __construct(Router $router)
+    public function __construct()
     {
         parent::__construct();
     }
