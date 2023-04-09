@@ -9,7 +9,5 @@
     @includeIf('layouts.site.main')
 </div><!-- ./wrapper -->
 
-{{-- Footer(js) --}}
-{{--@includeIf('layouts.site.js')}}
 </body>
 </html>
