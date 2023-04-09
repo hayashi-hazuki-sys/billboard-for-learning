@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use App\Model\User;
 
 class LoginController extends Controller
 {
@@ -36,5 +38,26 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function login(Request $request)
+    {
+        $message = '';
+        if ($request->isMethod('post')) {
+            $authinfo =[
+                'mail'     => $request->mail,
+                'password' => $request->password
+            ];
+            //実際の認証ロジック
+            if (Auth::attempt($authinfo)){
+                //成功時は認証がされているアクションに飛ぶ
+                return redirect()->route('site.top');
+            } else {
+                $message = 'ログインに失敗しました。';
+            }
+        }
+        return view('auth.login',[
+            'message' => $message
+        ]);
     }
 }

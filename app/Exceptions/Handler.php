@@ -38,4 +38,14 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    //未ログインユーザがログインユーザ専用ページにアクセスした場合
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if ($request->expectsJson()) {
+            return response()->json(['error' => 'Unauthenticated.'], 401);
+        }
+        //認証が聞いていない場合に飛ばす先をここで定義
+        return redirect()->guest(route('site.top'));
+    }
 }

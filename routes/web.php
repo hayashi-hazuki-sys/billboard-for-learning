@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TopController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +19,25 @@ use App\Http\Controllers\TopController;
 //TOPページ
 Route::get('/',  [TopController::class, 'index'])->name('site.top');
 
-/* 追加行 */
-Route::get('/info', function () {
-    return 'Hello World';
+//投稿一覧
+Route::get('/postlist', [ArticalController::class, 'list'])->name('site.postlist');
+
+//ログイン
+Route::group(['prefix' => 'auth'], function () {
+    Route::match(['get','post'],'login', [LoginController::class, 'login'])->name('site.login');
+    Route::get('logout', [LoginController::class, 'logout'])->name('site.logout');
 });
+
+//ログインユーザのみアクセス可能ページ
+Route::group(['prefix' => 'auth','middleware' => 'auth'], function () {
+    //マイページ
+    //Route::get('/mypage', [MypageController::class, 'index'])->name('site.mypage');
+    //投稿書き込みページ
+    Route::get('/postedit', [ArticleController::class, 'edit'])->name('site.postedit');
+    //DM
+    Route::get('/room', [ArticleController::class, 'index'])->name('site.room');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
