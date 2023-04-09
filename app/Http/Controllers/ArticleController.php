@@ -88,6 +88,17 @@ class ArticleController extends SiteController
         return redirect(route("site.top"));
     }
 
+    public function list(Request $request)
+    {
+        //投稿記事一覧取得
+        $article_object = new Article();
+        $article_list = $article_object->getSearchList($request);
+
+        return view('postlist')->with([
+            'article_list' => $article_list,
+        ]);
+    }
+
     /**
      * Update the specified resource in storage.
      *

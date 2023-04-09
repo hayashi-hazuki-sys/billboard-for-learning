@@ -25,7 +25,9 @@
                     @if(!empty($article_data->give_cha_id) || !empty($article_data->give_cha_word))
                         譲：@if(!empty($article_data->give_cha_id)){{$article_data->give_cha_nm}}@else{{$article_data->give_cha_word}}@endif<br>
                     @endif
-                    返信数：{{$article_data->reply_cnt}}
+                    @if(!empty($article_data->deal_way_id))
+                        取引方法：{{$article_data->deal_way_id}}<br>
+                    @endif
                 </div>
             @endforeach
         @endif

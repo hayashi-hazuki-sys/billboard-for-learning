@@ -55,6 +55,8 @@ class Article extends Authenticatable
         DB::table($this->table)->insert([
             'user_id' => $data->user_id,
             'genre_id' => $data->genre_id,
+            'demand_cha_word' => $data->demand_cha_word,
+            'give_cha_word' => $data->give_cha_word,
             'body' => $data->body,
             'status' => 1,
             'set_date' => $date,
@@ -85,6 +87,35 @@ class Article extends Authenticatable
             ->leftJoin('chara_tbl as b', 'article_tbl.demand_cha_id', '=', 'b.chara_id')
             ->leftJoin('chara_tbl as c', 'article_tbl.give_cha_id', '=', 'c.chara_id')
             ->where('article_tbl.user_id',$user_id)
+            ->where('article_tbl.status',1)
+        ;
+
+        $article_list = $select_query->get();
+
+        return $article_list;
+    }
+
+    public function getSearchList($search){
+        $article_list = [];
+        $column = [
+            'article_tbl.article_id',
+            'article_tbl.genre_id',
+            'article_tbl.demand_cha_id',
+            'article_tbl.demand_cha_word',
+            'article_tbl.give_cha_id',
+            'article_tbl.give_cha_word',
+            'article_tbl.deal_way_id',
+            'article_tbl.image',
+            'article_tbl.body',
+            'a.genre_nm',
+            'b.chara_nm as demand_cha_nm',
+            'c.chara_nm as give_cha_nm',
+        ];
+        $select_query = DB::table($this->table)
+            ->select($column)
+            ->leftJoin('genre_tbl as a', 'article_tbl.genre_id', '=', 'a.genre_id')
+            ->leftJoin('chara_tbl as b', 'article_tbl.demand_cha_id', '=', 'b.chara_id')
+            ->leftJoin('chara_tbl as c', 'article_tbl.give_cha_id', '=', 'c.chara_id')
             ->where('article_tbl.status',1)
         ;
 
