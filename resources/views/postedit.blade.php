@@ -16,7 +16,7 @@
         <label for="genre_id">グループ名:</label>
         <select name="genre_id">
             @foreach ($genre_list as $genre_data)
-                <option value="{{$$genre_data->genre_id}}">{{ $genre_data->genre_nm}}</option>
+                <option value="{{$genre_data->genre_id}}">{{$genre_data->genre_nm}}</option>
             @endforeach
         </select>
 
