@@ -30,8 +30,6 @@ class TopController extends Controller
             $data = $object->getData();
         }
 
-        var_dump('DB取得結果'.$data);
-        echo $data[0]->nickname;
         return view('top')->with([
             'nickname' => $data[0]->nickname,
         ]);
