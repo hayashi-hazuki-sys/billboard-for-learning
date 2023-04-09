@@ -56,7 +56,7 @@ class Reply extends Authenticatable
 
         $reply_cnt = 0;
         if(!empty($result)){
-            $reply_cnt = $result->reply_cnt;
+            $reply_cnt = $result[0]->reply_cnt;
         }
 
         return $reply_cnt;
