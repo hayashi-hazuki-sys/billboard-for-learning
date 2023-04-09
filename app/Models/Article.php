@@ -79,7 +79,7 @@ class Article extends Authenticatable
             'b.chara_nm as demand_cha_nm',
             'c.chara_nm as give_cha_id'
         ];
-        DB::table($this->table)
+        $article_list = DB::table($this->table)
             ->select($column)
             ->leftJoin('genre_tbl', 'article_tbl.genre_id', '=', 'genre_tbl.genre_id')
             ->leftJoin('chara_tbl as b', 'article_tbl.demand_cha_id', '=', 'b.chara_id')
@@ -87,6 +87,8 @@ class Article extends Authenticatable
             ->where('user_id',$user_id)
             ->where('status',1)
         ;
+
+        dd($article_list->toSql(), $article_list->getBindings());
         return $article_list;
     }
 }
