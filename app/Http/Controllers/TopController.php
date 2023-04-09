@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-class TopController extends Controller
+class TopController extends SiteController
 {
     /**
      * Display a listing of the resource.
