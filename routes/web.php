@@ -17,7 +17,7 @@ use App\Http\Controllers\Auth\LoginController;
 */
 
 //TOPページ
-Route::any('/top',  [TopController::class, 'page'])->name('site.top');
+Route::any('/',  [TopController::class, 'page'])->name('site.top');
 
 //投稿一覧
 Route::get('/postlist', [ArticleController::class, 'list'])->name('site.postlist');
