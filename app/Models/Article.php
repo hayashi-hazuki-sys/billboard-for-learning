@@ -81,7 +81,7 @@ class Article extends Authenticatable
             'count(d.reply_id) as reply_cnt'
         ];
         $select_query = DB::table($this->table)
-            ->select($column)
+            ->select(DB::raw($column))
             ->leftJoin('genre_tbl as a', 'article_tbl.genre_id', '=', 'a.genre_id')
             ->leftJoin('chara_tbl as b', 'article_tbl.demand_cha_id', '=', 'b.chara_id')
             ->leftJoin('chara_tbl as c', 'article_tbl.give_cha_id', '=', 'c.chara_id')
