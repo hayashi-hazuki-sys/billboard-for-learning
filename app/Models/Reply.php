@@ -47,7 +47,7 @@ class Reply extends Authenticatable
     public function getReplyCnt($article_id)
     {
         $query = DB::table($this->table)
-            ->select(DB::raw('count(d.reply_id) as reply_cnt'))
+            ->select(DB::raw('count(reply_id) as reply_cnt'))
             ->where('article_id',$article_id)
             ->where('status',1)
         ;
