@@ -100,6 +100,8 @@ class Article extends Authenticatable
         $column = [
             'article_tbl.article_id',
             'article_tbl.genre_id',
+            'article_tbl.user_id',
+            'd.nickname',
             'article_tbl.demand_cha_id',
             'article_tbl.demand_cha_word',
             'article_tbl.give_cha_id',
@@ -116,6 +118,7 @@ class Article extends Authenticatable
             ->leftJoin('genre_tbl as a', 'article_tbl.genre_id', '=', 'a.genre_id')
             ->leftJoin('chara_tbl as b', 'article_tbl.demand_cha_id', '=', 'b.chara_id')
             ->leftJoin('chara_tbl as c', 'article_tbl.give_cha_id', '=', 'c.chara_id')
+            ->leftJoin('users as d', 'article_tbl.user_id', '=', 'd.user_id')
             ->where('article_tbl.status',1)
         ;
 

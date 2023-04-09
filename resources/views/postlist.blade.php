@@ -15,6 +15,7 @@
         @if(!empty($article_list))
             @foreach($article_list as $article_data)
                 <div>
+                    投稿ユーザ：{{$article_data->nickname}}<br>
                     {{$article_data->genre_nm}}<br>
                     {{$article_data->body}}<br>
                     @if(!empty($article_data->demand_cha_id) || !empty($article_data->demand_cha_word))
