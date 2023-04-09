@@ -1,3 +1,3 @@
-@include('layouts.message')
+@include('layouts.site.message')
 {{-- Main Content --}}
 @yield('content')
