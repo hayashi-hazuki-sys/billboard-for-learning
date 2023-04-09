@@ -54,6 +54,7 @@ class Article extends Authenticatable
         $date = date('Y-m-d H:i:s');
         DB::table($this->table)->insert([
             'user_id' => $data->user_id,
+            'body' => $data->body,
             'status' => 1,
             'set_date' => $date,
             'set_nm' => 'system',
