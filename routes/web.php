@@ -20,7 +20,7 @@ use App\Http\Controllers\Auth\LoginController;
 Route::get('/',  [TopController::class, 'index'])->name('site.top');
 
 //投稿一覧
-Route::get('/postlist', [ArticalController::class, 'list'])->name('site.postlist');
+Route::get('/postlist', [ArticleController::class, 'list'])->name('site.postlist');
 
 //ログイン
 Route::group(['prefix' => 'auth'], function () {

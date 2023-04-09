@@ -17,5 +17,4 @@
 @endsection
 
 {{-- 追加javascript --}}
-@push('add_js')
-@endpush
+
