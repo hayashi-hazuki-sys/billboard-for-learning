@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\DB;
 
-class User extends Authenticatable
+class Article extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -18,8 +18,7 @@ class User extends Authenticatable
      *
      * @var string
      */
-    protected $table = 'users';
-    protected $primaryKey = 'user_id';
+    protected $table = 'article_tbl';
 
     /**
      * The attributes that are mass assignable.
@@ -27,25 +26,20 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'article_id',
         'user_id',
-        'password',
-        'mail',
-        'nickname',
-        'pro_img',
-        'avail_flg',
+        'genre_id',
+        'demand_cha_id',
+        'demand_cha_word',
+        'give_cha_id',
+        'give_cha_word',
+        'deal_way_id',
+        'image',
+        'body',
+        'status',
         'set_date',
         'set_nm',
-        'create_date'
-    ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'mail',
+        'create_date',
     ];
 
     public function getData()
@@ -53,18 +47,5 @@ class User extends Authenticatable
         $data = DB::table($this->table)->get();
 
         return $data;
-    }
-
-    public function getUserFlg($user_id)
-    {
-        $user_flg = false;
-        if(!empty($user_id)){
-            $user = DB::table($this->table)->where('user_id', $user_id)->first();
-            if(!empty($user)){
-                $user_flg = true;
-            }
-        }
-
-        return $user_flg;
     }
 }

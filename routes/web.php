@@ -21,6 +21,10 @@ Route::get('/',  [TopController::class, 'index'])->name('site.top');
 
 //投稿一覧
 Route::get('/postlist', [ArticleController::class, 'list'])->name('site.postlist');
+//投稿書き込みページ
+Route::get('/postedit', [ArticleController::class, 'edit'])->name('site.postedit');
+//投稿
+Route::get('/article_post', [ArticleController::class, 'post'])->name('site.article_post');
 
 //ログイン
 Route::group(['prefix' => 'auth'], function () {
@@ -33,7 +37,7 @@ Route::group(['prefix' => 'auth','middleware' => 'auth'], function () {
     //マイページ
     //Route::get('/mypage', [MypageController::class, 'index'])->name('site.mypage');
     //投稿書き込みページ
-    Route::get('/postedit', [ArticleController::class, 'edit'])->name('site.postedit');
+    //Route::get('/postedit', [ArticleController::class, 'edit'])->name('site.postedit');
     //DM
     Route::get('/room', [ArticleController::class, 'index'])->name('site.room');
 });
