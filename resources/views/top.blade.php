@@ -27,6 +27,7 @@
                     @endif
                     返信数：{{$article_data->reply_cnt}}
                 </div>
+                <br>
             @endforeach
         @endif
     @endif

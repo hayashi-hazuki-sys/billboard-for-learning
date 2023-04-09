@@ -11,8 +11,6 @@
 
     {{-- Main Contents --}}
 
-    ログインユーザ：{{$nickname}}
-
     @if($user_flg)
         @if(!empty($article_list))
             @foreach($article_list as $article_data)
@@ -29,6 +27,7 @@
                         取引方法：{{$article_data->deal_way_id}}<br>
                     @endif
                 </div>
+                <br>
             @endforeach
         @endif
     @endif
