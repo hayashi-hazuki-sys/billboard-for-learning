@@ -8,6 +8,6 @@
     {{-- Main Content --}}
     @includeIf('layouts.site.main')
 </div><!-- ./wrapper -->
-
+@includeIf('layouts.site.js')
 </body>
 </html>
