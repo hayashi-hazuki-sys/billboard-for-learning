@@ -46,7 +46,7 @@ class LoginController extends Controller
         $message = '';
         if ($request->isMethod('post')) {
             $authinfo =[
-                'mail'     => $request->mail,
+                'mail'     => $request->email,
                 'password' => $request->password
             ];
             //実際の認証ロジック
