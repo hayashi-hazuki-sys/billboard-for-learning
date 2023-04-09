@@ -21,7 +21,6 @@ class TopController extends SiteController
         if($this->user_flg){
             $article_object = new Article();
             $article_list = $article_object->getArticleList($this->user_id);
-            var_dump($article_list);
         }
 
         return view('top')->with([

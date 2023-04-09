@@ -77,15 +77,18 @@ class Article extends Authenticatable
             'article_tbl.body',
             'a.genre_nm',
             'b.chara_nm as demand_cha_nm',
-            'c.chara_nm as give_cha_id'
+            'c.chara_nm as give_cha_nm',
+            'count(d.reply_id) as reply_cnt'
         ];
         $select_query = DB::table($this->table)
             ->select($column)
             ->leftJoin('genre_tbl as a', 'article_tbl.genre_id', '=', 'a.genre_id')
             ->leftJoin('chara_tbl as b', 'article_tbl.demand_cha_id', '=', 'b.chara_id')
             ->leftJoin('chara_tbl as c', 'article_tbl.give_cha_id', '=', 'c.chara_id')
+            ->leftJoin('reply_tbl as d', 'article_tbl.article_id', '=', 'd.article_id')
             ->where('article_tbl.user_id',$user_id)
             ->where('article_tbl.status',1)
+            ->where('d.status',1)
         ;
 
         $article_list = $select_query->get();
