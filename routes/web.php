@@ -24,7 +24,7 @@ Route::get('/postlist', [ArticleController::class, 'list'])->name('site.postlist
 //投稿書き込みページ
 Route::get('/postedit', [ArticleController::class, 'edit'])->name('site.postedit');
 //投稿
-Route::get('/article_post', [ArticleController::class, 'post'])->name('site.article_post');
+Route::post('/article_post', [ArticleController::class, 'post'])->name('site.article_post');
 
 //ログイン
 Route::group(['prefix' => 'auth'], function () {
