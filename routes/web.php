@@ -21,3 +21,6 @@ Route::get('/',  [TopController::class, 'index'])->name('site.top');
 Route::get('/info', function () {
     return 'Hello World';
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
