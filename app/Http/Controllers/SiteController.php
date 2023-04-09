@@ -28,11 +28,11 @@ class SiteController extends BaseController
         //テスト用
         session()->put('user_id', "1");
 
-        $user_id = session()->get('user_id');
-        if(!empty($user_id)){
+        $this->user_id = session()->get('user_id');
+        if(!empty($this->user_id)){
             //有効状態のユーザか確認
             $user_object = new User();
-            $this->user_flg = $user_object->getUserFlg($user_id);
+            $this->user_flg = $user_object->getUserFlg($this->user_id);
         }
 
         View::composer('*', function($view) {
