@@ -64,10 +64,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $date = date('Y-m-d H:i:s');
+
         return User::create([
             'nickname' => $data['name'],
             'mail' => $data['email'],
             'password' => Hash::make($data['password']),
+            'pro_img' => '',
+            'avail_flg' => 1, //有効
+            'set_date' => $date,
+            'set_nm' => 'system',
+            'create_date' => $date,
         ]);
     }
 }
