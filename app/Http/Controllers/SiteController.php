@@ -20,7 +20,7 @@ class SiteController extends BaseController
      *
      * @return void
      */
-    public function __construct(Router $router)
+    public function __construct()
     {
         //ログイン済みか確認
         $this->user_flg = false;
