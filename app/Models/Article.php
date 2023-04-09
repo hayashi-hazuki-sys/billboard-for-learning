@@ -84,8 +84,8 @@ class Article extends Authenticatable
             ->leftJoin('genre_tbl as a', 'article_tbl.genre_id', '=', 'genre_tbl.genre_id')
             ->leftJoin('chara_tbl as b', 'article_tbl.demand_cha_id', '=', 'b.chara_id')
             ->leftJoin('chara_tbl as c', 'article_tbl.give_cha_id', '=', 'c.chara_id')
-            ->where('user_id',$user_id)
-            ->where('status',1)
+            ->where('article_tbl.user_id',$user_id)
+            ->where('article_tbl.status',1)
         ;
 
         $article_list = $select_query->get();
