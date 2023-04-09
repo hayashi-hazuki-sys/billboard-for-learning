@@ -83,7 +83,7 @@ class ArticleController extends SiteController
     {
         //投稿内容登録
         $article_object = new Article();
-        $genre_list = $article_object->registerData($request);
+        $article_object->registerData($request);
 
         return redirect(route("site.top"));
     }

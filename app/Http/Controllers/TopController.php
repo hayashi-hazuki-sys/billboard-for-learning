@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Article;
 
 class TopController extends SiteController
 {
@@ -15,23 +16,17 @@ class TopController extends SiteController
     public function index(Request $request)
     {
         session()->put('msg');
-        //テスト用
-        session()->put('user_id', "1");
-
-        //ログイン済みか確認
-        $user_id = session()->get('user_id');
-
-        //ユーザ情報取得
-        $login_flg = false;
-        if(!empty($user_id)){
-            $login_flg = true;
-
-            $object = new User();
-            $data = $object->getData();
+        $article_list = [];
+        //ログイン済みの場合投稿記事一覧取得
+        if($this->user_flg){
+            $article_object = new Article();
+            $article_list = $article_object->getArticleList($this->user_id);
+            var_dump($article_list);
         }
 
         return view('top')->with([
-            'nickname' => $data[0]->nickname,
+            'nickname' => $this->user_id,
+            'article_list' => $article_list,
         ]);
     }
 
