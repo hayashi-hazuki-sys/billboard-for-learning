@@ -13,6 +13,7 @@
 
 
     <form method="post" action="{{route('site.article_post')}}">
+        @csrf
         <label for="genre_id">グループ名:</label>
         <select name="genre_id">
             @foreach ($genre_list as $genre_data)
