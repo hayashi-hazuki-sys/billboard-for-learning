@@ -66,22 +66,22 @@ class Article extends Authenticatable
     public function getArticleList($user_id){
         $article_list = [];
         $column = [
-            'article_id',
-            'genre_id',
-            'demand_cha_id',
-            'demand_cha_word',
-            'give_cha_id',
-            'give_cha_word',
-            'deal_way_id',
-            'image',
-            'body',
-            'genre_nm',
+            'article_tbl.article_id',
+            'article_tbl.genre_id',
+            'article_tbl.demand_cha_id',
+            'article_tbl.demand_cha_word',
+            'article_tbl.give_cha_id',
+            'article_tbl.give_cha_word',
+            'article_tbl.deal_way_id',
+            'article_tbl.image',
+            'article_tbl.body',
+            'a.genre_nm',
             'b.chara_nm as demand_cha_nm',
             'c.chara_nm as give_cha_id'
         ];
         $select_query = DB::table($this->table)
             ->select($column)
-            ->leftJoin('genre_tbl', 'article_tbl.genre_id', '=', 'genre_tbl.genre_id')
+            ->leftJoin('genre_tbl as a', 'article_tbl.genre_id', '=', 'genre_tbl.genre_id')
             ->leftJoin('chara_tbl as b', 'article_tbl.demand_cha_id', '=', 'b.chara_id')
             ->leftJoin('chara_tbl as c', 'article_tbl.give_cha_id', '=', 'c.chara_id')
             ->where('user_id',$user_id)
