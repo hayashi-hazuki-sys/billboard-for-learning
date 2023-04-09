@@ -27,7 +27,7 @@ class SiteController extends BaseController
         $this->user_flg = false;
         //テスト用
         session()->put('user_id', "1");
-        session()->set('user_id');
+
         $user_id = session()->get('user_id');
         if(!empty($user_id)){
             //有効状態のユーザか確認
