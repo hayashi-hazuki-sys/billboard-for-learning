@@ -12,6 +12,7 @@
     {{-- Main Contents --}}
 
 
+    ログインユーザ：{{$user_id}}
     <form method="post" action="{{route('site.article_post')}}">
         @csrf
         <label for="genre_id">グループ名:</label>
