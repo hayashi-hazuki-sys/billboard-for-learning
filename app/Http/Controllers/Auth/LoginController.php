@@ -46,12 +46,10 @@ class LoginController extends Controller
         $message = '';
         if ($request->isMethod('post')) {
             $authinfo =[
-                'mail'     => $request->email,
+                'email'     => $request->email,
                 'password' => $request->password
             ];
 
-            $result = Auth::attempt($authinfo);
-            echo $authinfo['mail'].$result;
             //実際の認証ロジック
             if (Auth::attempt($authinfo)){
                 //成功時は認証がされているアクションに飛ぶ
