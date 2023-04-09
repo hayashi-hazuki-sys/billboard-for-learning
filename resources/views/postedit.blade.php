@@ -1,6 +1,7 @@
 @extends('layouts.site.base')
 
 {{-- cssにてパスの判定に使用 --}}
+@push('user_id', $user_id)
 {{-- 追加CSSの指定 --}}
 
 {{-- ページ情報 --}}
@@ -39,7 +40,7 @@
         <input type="file" name="image">
 
         <br>
-        <input type="hidden" name="user_id" value="{{$user_id}}">
+        <input type="hidden" name="user_id" value="@stack('user_id')">
 
     <input type="submit" value="送信">
 
