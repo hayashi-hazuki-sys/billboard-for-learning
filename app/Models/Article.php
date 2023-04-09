@@ -65,6 +65,10 @@ class Article extends Authenticatable
         ]);
     }
 
+    public function ArticleDel($article_id){
+        $deleted = DB::table($this->table)->where('article_id', $article_id)->delete();
+    }
+
     public function getArticleList($user_id){
         $article_list = [];
         $column = [

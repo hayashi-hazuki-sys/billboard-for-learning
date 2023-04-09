@@ -9,6 +9,17 @@ use App\Models\Reply;
 
 class TopController extends SiteController
 {
+
+    public function page(Request $request)
+    {
+        switch ($request->input('action', 'index')) {
+            case 'delete':
+                return $this->delete($request);
+            case 'list':
+            default:
+                return $this->index($request);
+        }
+    }
     /**
      * Display a listing of the resource.
      *
@@ -44,9 +55,16 @@ class TopController extends SiteController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function delete(Request $request)
     {
-        //
+
+        $article_id = $request['article_id'];
+
+        //記事削除
+        $article_object = new Article();
+        $article_object->ArticleDel($article_id);
+
+        return redirect(route("site.top"))->with("msg", "投稿を削除しました");
     }
 
     /**
