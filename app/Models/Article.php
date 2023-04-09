@@ -88,7 +88,6 @@ class Article extends Authenticatable
             ->where('status',1)
         ;
 
-        dd($article_list->toSql(), $article_list->getBindings());
         return $article_list;
     }
 }
