@@ -81,6 +81,7 @@ class ArticleController extends SiteController
 
     public function post(Request $request)
     {
+        var_dump($request);
         //投稿内容登録
         $article_object = new Article();
         $genre_list = $article_object->registerData($request);
