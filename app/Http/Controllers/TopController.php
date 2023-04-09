@@ -10,14 +10,14 @@ use App\Models\Reply;
 class TopController extends SiteController
 {
 
-    public function page(Request $request)
+    public function page($action='index',$article_id='')
     {
-        switch ($request->input('action', 'index')) {
+        switch ($action) {
             case 'delete':
-                return $this->delete($request);
+                return $this->delete($article_id);
             case 'list':
             default:
-                return $this->index($request);
+                return $this->index();
         }
     }
     /**

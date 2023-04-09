@@ -26,7 +26,7 @@
                         譲：@if(!empty($article_data->give_cha_id)){{$article_data->give_cha_nm}}@else{{$article_data->give_cha_word}}@endif<br>
                     @endif
                     返信数：{{$article_data->reply_cnt}}<br>
-                    <a href="{{route("site.top")}}&action=delete&article_id={{$article_data->article_id}}" class="del-btn">削除</a>
+                    <a href="{{route("site.top")}}/delete/{{$article_data->article_id}}" class="del-btn">削除</a>
                 </div>
                 <br>
             @endforeach
