@@ -19,6 +19,7 @@ class Article extends Authenticatable
      * @var string
      */
     protected $table = 'article_tbl';
+    protected $primaryKey = 'article_id';
 
     /**
      * The attributes that are mass assignable.
