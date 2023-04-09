@@ -52,10 +52,11 @@ class Reply extends Authenticatable
             ->where('status',1)
         ;
 
-        $reply_cnt = $query->get();
+        $result = $query->get();
 
-        if(empty($reply_cnt)){
-            $reply_cnt = 0;
+        $reply_cnt = 0;
+        if(!empty($result)){
+            $reply_cnt = $result->reply_cnt;
         }
 
         return $reply_cnt;
