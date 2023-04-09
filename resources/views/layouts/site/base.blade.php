@@ -5,6 +5,7 @@
 
 <body class="hold-transition">
 <div class="wrapper">
+    @include('layouts.site.header')
     {{-- Main Content --}}
     @includeIf('layouts.site.main')
 </div><!-- ./wrapper -->

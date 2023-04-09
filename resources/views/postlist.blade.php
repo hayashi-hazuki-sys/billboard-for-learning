@@ -6,9 +6,6 @@
 {{-- ページ情報 --}}
 @section('content')
 
-    {{-- Header Menu --}}
-    @includeIf('layouts.site.header')
-
     {{-- Main Contents --}}
 
     @if($user_flg)

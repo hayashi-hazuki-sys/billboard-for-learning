@@ -64,7 +64,7 @@ class TopController extends SiteController
         $article_object = new Article();
         $article_object->ArticleDel($article_id);
 
-        return redirect(route("site.top"))->with("msg", "投稿を削除しました");
+        return redirect(route("site.top"))->with("del_msg", "投稿を削除しました");
     }
 
     /**

@@ -5,13 +5,10 @@
 
 {{-- ページ情報 --}}
 @section('content')
-
-    {{-- Header Menu --}}
-    @includeIf('layouts.site.header')
-
     {{-- Main Contents --}}
 
     ログインユーザ：{{$nickname}}
+    <br>
 
     @if($user_flg)
         @if(!empty($article_list))
