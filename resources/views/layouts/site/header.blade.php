@@ -17,6 +17,7 @@
                         投稿一覧
                     </a>
                 </li>
+                {{$user_flg}}{{$user_id}}
                 @if ($user_flg)
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="{{route("site.login")}}">
