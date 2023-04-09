@@ -49,6 +49,7 @@ class LoginController extends Controller
                 'mail'     => $request->email,
                 'password' => $request->password
             ];
+
             //実際の認証ロジック
             if (Auth::attempt($authinfo)){
                 //成功時は認証がされているアクションに飛ぶ
