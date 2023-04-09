@@ -120,6 +120,7 @@ class Article extends Authenticatable
             ->leftJoin('chara_tbl as c', 'article_tbl.give_cha_id', '=', 'c.chara_id')
             ->leftJoin('users as d', 'article_tbl.user_id', '=', 'd.user_id')
             ->where('article_tbl.status',1)
+            ->where('d.avail_flg',1)
         ;
 
         $article_list = $select_query->get();
