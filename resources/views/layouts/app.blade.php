@@ -8,6 +8,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
