@@ -48,4 +48,15 @@ class Article extends Authenticatable
 
         return $data;
     }
+
+    public function registerData($data){
+        $date = date('Y-m-d H:i:s');
+        DB::table($this->table)->insert([
+            'user_id' => $data['user_id'],
+            'status' => 1,
+            'set_date' => $date,
+            'set_nm' => 'system',
+            'create_date' => $date,
+        ]);
+    }
 }

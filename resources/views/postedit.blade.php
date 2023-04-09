@@ -20,18 +20,23 @@
             @endforeach
         </select>
 
+        <br>
         <label for="demand_cha_word">求:</label>
         <input type="text" name="demand_cha_word">
 
+        <br>
         <label for="demand_cha_word">譲:</label>
         <input type="text" name="give_cha_word">
 
+        <br>
         <label for="body">内容:</label>
         <textarea name="body" rows="4" cols="40"></textarea>
 
+        <br>
         <label for="image">画像:</label>
         <input type="file" name="image">
 
+        <br>
         <input type="hidden" name="user_id" value="{{$user_id}}">
 
     <input type="submit" value="送信">

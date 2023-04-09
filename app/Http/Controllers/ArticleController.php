@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Genre;
+use App\Models\Article;
 
 class ArticleController extends SiteController
 {
@@ -69,17 +70,22 @@ class ArticleController extends SiteController
      */
     public function edit(Request $request)
     {
-        //ユーザID取得
-        $user_id = $this->user_id;
-
         //ジャンルリスト取得
         $genre_object = new Genre();
         $genre_list = $genre_object->getData();
 
         return view('postedit')->with([
-            'user_id' => $user_id,
             'genre_list' => $genre_list,
         ]);
+    }
+
+    public function post(Request $request)
+    {
+        //投稿内容登録
+        $article_object = new Article();
+        $genre_list = $article_object->registerData($request);
+
+        return redirect(route("site.top"));
     }
 
     /**
