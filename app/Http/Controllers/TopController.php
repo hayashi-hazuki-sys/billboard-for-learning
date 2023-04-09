@@ -30,6 +30,8 @@ class TopController extends Controller
             $data = $object->getData();
         }
 
+        echo $test;
+
         return view('top')->with([
             'nickname' => $data[0]->nickname,
         ]);
