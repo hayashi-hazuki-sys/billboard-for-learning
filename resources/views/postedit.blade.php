@@ -30,9 +30,11 @@
         <label for="body">内容:</label>
         <textarea name="body" rows="4" cols="40"></textarea>
 
+        <!--
         <br>
         <label for="image">画像:</label>
         <input type="file" name="image">
+        -->
 
         <br>
         <input type="hidden" name="user_id" value="{{$user_id}}">
